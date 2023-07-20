@@ -1,28 +1,34 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-const initialContactsState = {
+const contact: {
+    id:string,
+    name: string,
+    family: string,
+    email: string,
+    phone: string,
+    relative: string,
+} = {
+    id:'',
+    name: "",
+    family: "",
+    email: "",
+    phone: "",
+    relative: ""
+}
 
-};
+const initialContactsList : Array<typeof contact>=[]
 
-const counterSlice = createSlice({
-    name: 'counter',
-    initialState: initialContactsState,
+const contactListSlice = createSlice({
+    name: 'contact',
+    initialState: initialContactsList,
     reducers: {
-        // increment(state) {
-        //     state.counter++;
-        // },
-        // decrement(state) {
-        //     state.counter--;
-        // },
-        // increase(state, action) {
-        //     state.counter = state.counter + action.payload;
-        // },
-        // toggleCounter(state) {
-        //     state.showCounter = !state.showCounter;
-        // },
+        getList(state,action) {
+             return action.payload;
+        },
+        
     },
 });
 
-export const counterActions = counterSlice.actions;
+export const contactListActions = contactListSlice.actions;
 
-export default counterSlice.reducer;
+export default contactListSlice.reducer;
